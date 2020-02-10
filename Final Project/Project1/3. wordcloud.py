@@ -18,13 +18,21 @@ import re
 import os
 import matplotlib.pyplot as plt
 from PIL import Image                         # Pillow 패키지의 영상 핸들링 클래스.
+import matplotlib 
+from IPython.display import set_matplotlib_formats
 #from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 %matplotlib inline
 
+## 입력값 제거 함수
+def remove_values_from_list(the_list, val):
+   return [value for value in the_list if value != val]
+
+## Path
 #os.chdir(r'C:\Users\Owner\Desktop\Minnie\project')
 
-test=pd.read_excel("여행.xlsx")
+## 파일 불러오기
+test=pd.read_excel("test.xlsx")
 
 n_min = 2                                                           # 최소 문자 개수. 
 corpus = []
@@ -36,26 +44,44 @@ for a_line in test['title']:
     pre = nltk.word_tokenize(pre)
     pre = [x for x in pre if len(x) > n_min]                        # 최소 길이 충족.
     corpus +=pre                                                 # 단어를 말뭉치에 추가.
-    
+
+
+## 입력값 제거
+x = remove_values_from_list(corpus, '신한카드')
 # Series 로 변환.
-my_series = pd.Series(corpus)
+my_series = pd.Series(x)
+
 # 도수 분포표. Top 10
 my_word_counts = my_series.value_counts().sort_values(ascending=False)
 my_word_counts[:10]
 
 
 # 다음은 워드클라우드의 요구사항.
-a_long_sentence = ' '.join(corpus)
+## 한글 폰트 설정
+#import matplotlib
+matplotlib.rc('font',family = 'Malgun Gothic') 
+# 폰트 선명하게
+#set_matplotlib_formats('retina') 
+# 그래프 음수 수치 오류 방지
+matplotlib.rc('axes',unicode_minus = False)
 
-wc = WordCloud(background_color='white', max_words=30)              # 바탕색, 단어 개수 등 설정.
+##### max_words 설정!
+max_words = 200
+
+a_long_sentence = ' '.join(x)
+wc = WordCloud(font_path = 'C:/Windows/Fonts/malgun.ttf',background_color='white',  max_words=max_words,max_font_size=300)              # 바탕색, 단어 개수 등 설정.
 wc.generate(a_long_sentence)
 wc.words_
+
 
 plt.figure(figsize=(10,10))
 plt.imshow(wc, interpolation='bilinear')
 plt.axis("off")                                    # 축을 꺼줌.
 plt.show()
 
+
+
+"""
 # 백그라운드 마스크
 #img = Image.open('background_1.png')                    # 타원형.
 #img = Image.open('background_2.png')                   # 말풍선.
@@ -69,3 +95,4 @@ plt.figure(figsize=(10,10))
 plt.imshow(wc, interpolation='bilinear')
 plt.axis("off")                                    # 축을 꺼줌.
 plt.show()
+"""
