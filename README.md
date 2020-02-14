@@ -25,7 +25,7 @@ __[ 아시아경제 청년취업아카데미 - 핀테크 금융데이터 분석�
   - 1장 - 빅데이터 금융 사이언티스트 개요
   - 2장 - 파이썬 라이브러리 활용 분석(Numpy, Matplotlib, Pandas)
   - 3장 - 파이썬 라이브러리 활용 분석(Seaborn)
-  - 4장 - 데이터 수집과 처리(crawling, Restful API, 정규 표현식)
+  - 4장 - 데이터 수집과 처리(Web crawling, Selenium, Restful API, 정규 표현식)
 - 교재 3 : PPT 강의자료
   - 1장 - 금융  분석과 모델링
     - 시계열 모델링 개요
@@ -33,27 +33,40 @@ __[ 아시아경제 청년취업아카데미 - 핀테크 금융데이터 분석�
     - 지수평활화 모형
     - 파생상품 개요
     - 선물의 원리
-    - 옵션 가격
+    - 옵션 가격 및 민감도
+    - 채권 원리 및 특성
 - 교재 4 : PPT 강의자료 
   - 1장 - 머신러닝 기초
+    - Scikit-Learn 개요
+    - 데이터 전처리
+    - Feature Engineering 
     - K-Means_clustering
     - PCA
     - Linear regression(Ridge, Lasso)
   - 2장 - 머신러닝 심화
     - Logistic regression
-    - KNN
     - Naive bayes
+    - KNN
     - SVM
-    - Decision tree
-    - Ensemble
+    - 트리 알고리즘(Decision tree, Ensemble)
 - 교재5 : PPT 강의자료
-  - 1장 - 자연어 처리
-    - NLTK
-    - Wordcloud
-    - n-Gram
+  - 1장 - 자연어 분석(NLP)
+    - 자연어 분석 개요(NLTK, Wordcloud)
+    - 언어 모형(n-Gram)
+    - 문서 표현(BOW, TF-IDF)
+    - 분류 예측
+    - 토픽 모델링(LSA, LDA)
   - 2장 - 딥러닝
+    - 인공 신경망 개요
+    - Keras 개요
+    - Keras 머신러닝
+    - Keras CNN
+    - Keras RNN
+    - Keras 자연어 분석
+  
+  - 3장 - 데이터 분석 프로젝트와 Design Thinking
 
-
+  
 
 - 본 Repository는 위 강의자료 코드를 기반으로 개인적인 파이썬 및 데이터 분석 기술을 습득하기 위해 작성되었음을 밝힙니다.
 
